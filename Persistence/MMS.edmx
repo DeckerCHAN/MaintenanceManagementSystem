@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminPassword" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="Remark" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Component">
+          <Key>
+            <PropertyRef Name="ComponentId" />
+          </Key>
+          <Property Name="ComponentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ComponentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ComponentModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Provider" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UsedBy" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BelongTo" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="ntext" />
+        </EntityType>
+        <EntityType Name="MaintenanceRecord">
+          <Key>
+            <PropertyRef Name="MaintenanceRecordId" />
+          </Key>
+          <Property Name="MaintenanceRecordId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaintenanceManId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ClientId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DeviceId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MaintenanceTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MMSModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Device" EntityType="Self.Device" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaintenanceRecord" EntityType="Self.MaintenanceRecord" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Guid" Nullable="false" />
+          <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientId" />
+          </Key>
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="CompanyId" Type="Guid" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Component">
+          <Key>
+            <PropertyRef Name="ComponentId" />
+          </Key>
+          <Property Name="ComponentId" Type="Guid" Nullable="false" />
+          <Property Name="ComponentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ComponentModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Provider" Type="Guid" Nullable="false" />
+          <Property Name="UsedBy" Type="Guid" />
+        </EntityType>
+        <EntityType Name="Device">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="Guid" Nullable="false" />
+          <Property Name="BelongTo" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Guid" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MaintenanceRecord">
+          <Key>
+            <PropertyRef Name="MaintenanceRecordId" />
+          </Key>
+          <Property Name="MaintenanceRecordId" Type="Guid" Nullable="false" />
+          <Property Name="MaintenanceManId" Type="Guid" Nullable="false" />
+          <Property Name="ClientId" Type="Guid" Nullable="false" />
+          <Property Name="DeviceId" Type="Guid" Nullable="false" />
+          <Property Name="MaintenanceTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="MMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="Company" EntityType="Self.Company" />
+          <EntitySet Name="Component" EntityType="Self.Component" />
+          <EntitySet Name="Device" EntityType="Self.Device" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="MaintenanceRecord" EntityType="Self.MaintenanceRecord" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MMSModelStoreContainer" CdmEntityContainer="MMSEntities">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="MMSModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="MMSModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="MMSModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Component">
+            <EntityTypeMapping TypeName="MMSModel.Component">
+              <MappingFragment StoreEntitySet="Component">
+                <ScalarProperty Name="ComponentId" ColumnName="ComponentId" />
+                <ScalarProperty Name="ComponentName" ColumnName="ComponentName" />
+                <ScalarProperty Name="ComponentModel" ColumnName="ComponentModel" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="UsedBy" ColumnName="UsedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Device">
+            <EntityTypeMapping TypeName="MMSModel.Device">
+              <MappingFragment StoreEntitySet="Device">
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="BelongTo" ColumnName="BelongTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="MMSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintenanceRecord">
+            <EntityTypeMapping TypeName="MMSModel.MaintenanceRecord">
+              <MappingFragment StoreEntitySet="MaintenanceRecord">
+                <ScalarProperty Name="MaintenanceRecordId" ColumnName="MaintenanceRecordId" />
+                <ScalarProperty Name="MaintenanceManId" ColumnName="MaintenanceManId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="MaintenanceTime" ColumnName="MaintenanceTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
