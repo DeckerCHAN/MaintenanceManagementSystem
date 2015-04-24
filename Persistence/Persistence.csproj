@@ -62,7 +62,6 @@
       <DependentUpon>MMS.tt</DependentUpon>
     </Compile>
     <Compile Include="DataEntityBuilder.cs" />
-    <Compile Include="DBStorage.cs" />
     <Compile Include="Device.cs">
       <DependentUpon>MMS.tt</DependentUpon>
     </Compile>

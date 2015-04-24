@@ -15,8 +15,8 @@ namespace MMS.Persistence
     
     public partial class MMSEntities : DbContext
     {
-        public MMSEntities(String connectString)
-            : base(connectString)
+        public MMSEntities(String con)
+            : base(con)
         {
         }
     
