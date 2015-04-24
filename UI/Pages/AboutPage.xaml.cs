@@ -12,14 +12,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI
+namespace MMS.UI.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AboutPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AboutPage : Page
     {
-        public MainWindow()
+        public AboutPage()
         {
             InitializeComponent();
         }

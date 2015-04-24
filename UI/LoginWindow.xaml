@@ -1,0 +1,43 @@
+﻿<Window x:Class="MMS.UI.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:MMS.UI.Properties"
+        Title="MainWindow" 
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        WindowStartupLocation="CenterScreen"
+        Width="532" Height="334" 
+        Style="{DynamicResource NativeWindowStyle}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/BootStrapButton.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeButton.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeDataGrid.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeTextBox.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Window.Resources>
+    <DockPanel  Background="White" VerticalAlignment="Top">
+        <Border DockPanel.Dock="Top"  Height="80" Background="#FFE7E7E7" BorderBrush="#FFC8C8C8" x:Name="Header" MouseLeftButtonDown="Header_OnMouseLeftButtonDown">
+            <Border.BorderThickness>
+                <Thickness Bottom="1"></Thickness>
+            </Border.BorderThickness>
+            <Canvas>
+                <Image Source="pack://siteoforigin:,,,/Resources/login_logo.png" Canvas.Top="6" Canvas.Left="10"></Image>
+            </Canvas>
+        </Border>
+
+        <Canvas DockPanel.Dock="Bottom" Height="238">
+            <TextBox  x:Name="UserNameTextBox"  x:FieldModifier="public"  Style="{DynamicResource NativeLoginAccountTextBoxStyle}"  Canvas.Top="44" Canvas.Left="112" TextWrapping="Wrap" Width="352" Height="48"/>
+            <PasswordBox  x:Name="PasswordTextBox"  x:FieldModifier="public" Style="{DynamicResource NativeLoginPasswordTextBoxStyle}" Canvas.Top="105" Canvas.Left="112" Width="352" Height="48"/>
+            <Button x:Name="LoginButton" x:FieldModifier="public" Content="{x:Static properties:Resources.Login}" Width="86" Height="33" FontSize="14" Foreground="White" Style="{DynamicResource NativeDetermineButton}" Canvas.Left="378" Canvas.Top="174" Click="LoginButton_OnClick"></Button>
+            <Label x:Name="FaultReason" FontSize="12" Foreground="#FFFD0202" Content="" Canvas.Left="196" Canvas.Top="13"/>
+            <Label Content="{x:Static properties:Resources.LoginAccount}" Canvas.Left="36" Canvas.Top="54" FontSize="14"/>
+            <Label Content="{x:Static properties:Resources.Password}" Canvas.Left="48" Canvas.Top="116" FontSize="14"/>
+        </Canvas>
+
+
+    </DockPanel>
+</Window>

@@ -1,0 +1,35 @@
+﻿<Window x:Class="MMS.UI.PopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properties="clr-namespace:MMS.UI.Properties"
+        Title="PopupWindow" Height="214" Width="336"
+        WindowStartupLocation="CenterOwner"
+        Style="{DynamicResource NativeWindowStyle}"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/BootStrapButton.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeButton.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeDataGrid.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeTextBox.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel >
+        <Border DockPanel.Dock="Top" Background="#FFE7E7E7" BorderBrush="#FFC8C8C8" Height="42" Width="320" x:Name="TitleBorder" MouseLeftButtonDown="TitleBorder_OnMouseLeftButtonDown">
+            <Border.BorderThickness>
+                <Thickness Bottom="1"></Thickness>
+            </Border.BorderThickness>
+            <Label x:Name="PopupTitle" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold" ></Label>
+        </Border>
+        <Canvas DockPanel.Dock="Bottom" Width="320" Height="156" Background="White">
+            <TextBlock x:Name="PopupContent" TextAlignment="Center" TextWrapping="Wrap" Foreground="#FF999999"   Height="52" Width="320" VerticalAlignment="Top" Canvas.Top="30"/>
+            <Button Height="32" Width="60" Style="{DynamicResource NativeDetermineButton}" Content="{x:Static properties:Resources.Confirm}" Canvas.Left="86" Canvas.Top="102" Click="ConfirmButton_OnClick"></Button>
+            <Button Height="32" Width="60" Style="{DynamicResource NativeCancelButton}" Content="{x:Static properties:Resources.Cancel}" Canvas.Left="192" Canvas.Top="102" Click="CancelButton_OnClick"></Button>
+
+        </Canvas>
+
+    </DockPanel>
+</Window>

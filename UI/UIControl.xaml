@@ -1,0 +1,10 @@
+﻿<Application
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MMS.UI" 
+             x:Class="MMS.UI.UIControl"
+             ShutdownMode="OnExplicitShutdown">
+    <Application.MainWindow>
+        <local:MainWindow/>
+    </Application.MainWindow>
+</Application>

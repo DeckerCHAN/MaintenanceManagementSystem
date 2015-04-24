@@ -1,0 +1,60 @@
+﻿<Page x:Class="MMS.UI.Pages.SubPages.SubPagebase"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      d:DesignWidth="804" d:DesignHeight="594"
+      Title="SubPagebase"
+      Loaded="Page_OnLoaded"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/BootStrapButton.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeButton.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeDataGrid.xaml"/>
+                <ResourceDictionary Source="/MMS.UI;component/Styles/NativeTextbox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Canvas>
+        <Label  Canvas.Left="30" Canvas.Top="54" FontSize="14" FontWeight="Bold" Content="{Binding Title}"></Label>
+        <Border BorderBrush="{DynamicResource NativeLineColorBrush}" BorderThickness="1" CornerRadius="8,8,8,8" Canvas.Left="30" Canvas.Top="100" Width="750" Height="420"  ClipToBounds="True">
+            <DataGrid x:Name="StatisticsData" x:FieldModifier="public" Style="{StaticResource NativeDataGridStyle}" IsReadOnly="True" AutoGenerateColumns="True" ItemsSource="{Binding PresentData}" SelectionMode="Extended" Background="{x:Null}"/>
+        </Border>
+        <Button x:Name="PreviousPageButton" Width="20" Height="20" Canvas.Left="344" Canvas.Top="541"  Style="{DynamicResource TransparentButton}" Click="PreviousPageButton_OnClick">
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/page_last.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="{Binding CurrentPage, Mode=OneWay}" Canvas.Left="401" Canvas.Top="536" Foreground="#FF8598B2" FontSize="15"/>
+        <Button x:Name="NextPageButton" Width="20" Height="20"  Canvas.Left="452" Canvas.Top="541" BorderThickness="0"  Style="{DynamicResource TransparentButton}" Click="NextPageButton_OnClick" >
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/page_next.png"/>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="AddItemButton" Width="20" Height="20"  Canvas.Left="580" Canvas.Top="541" BorderThickness="0"  Style="{DynamicResource TransparentButton}" Click="AddItemButton_OnClick" >
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/login_close.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="DeleteItemButton" Width="20" Height="20"  Canvas.Left="620" Canvas.Top="541" BorderThickness="0"  Style="{DynamicResource TransparentButton}" Click="DeleteItemButton_OnClick" >
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/login_close.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="AlterItemButton" Width="20" Height="20"  Canvas.Left="659" Canvas.Top="541" BorderThickness="0"  Style="{DynamicResource TransparentButton}" Click="AlterItemButton_OnClick" >
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/login_close.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="RefreshItemButton" Width="20" Height="20"  Canvas.Left="700" Canvas.Top="541" BorderThickness="0"  Style="{DynamicResource TransparentButton}" Click="RefreshItemButton_OnClick" >
+            <Button.Background>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/login_close.png"/>
+            </Button.Background>
+        </Button>
+    </Canvas>
+</Page>
